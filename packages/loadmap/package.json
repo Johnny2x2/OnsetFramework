@@ -1,0 +1,12 @@
+{
+	"author": "Blue Mountains",
+	"version": "1.0",
+	"server_scripts": [
+		"server/editor.lua"
+	],
+	"client_scripts": [
+		"client/editor.lua"
+	],
+	"files": [
+	]
+}
