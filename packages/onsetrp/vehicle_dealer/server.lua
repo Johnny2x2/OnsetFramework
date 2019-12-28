@@ -5,12 +5,13 @@ CarDealerTable = {
 	{
 		vehicles = { 
 				vehicle_1 = 3000,
-				vehicle_4 = 5000,
-				vehicle_5 = 7000,
+				vehicle_4 = 3000,
+				vehicle_22 = 3000,
+				vehicle_6 = 10000,
 				vehicle_7 = 10000,
 				vehicle_11 = 20000,
-				vehicle_12 = 40000,
-				vehicle_25 = 1000
+				vehicle_12 = 15000,
+				vehicle_25 = 500
 		},
 		colors = {
 			black = "0000",
@@ -19,14 +20,14 @@ CarDealerTable = {
 			green = "00FF00"
 
 		},
-		location = { 163334, 190854, 1354, -90 },
-		spawn = { 160392, 191106, 1350, -90 }
+		location = { -174924, -64183, 1151, 180 },
+		spawn = { -175442, -64850, 1130, 180 }
     },
     {
 		vehicles = { 
 			vehicle_1 = 3000,
 			vehicle_4 = 3000,
-			vehicle_5 = 3000,
+			vehicle_22 = 3000,
 			vehicle_6 = 10000,
 			vehicle_7 = 10000,
 			vehicle_11 = 20000,
@@ -40,13 +41,13 @@ CarDealerTable = {
 			green = "00FF00"
 
 		},
-		location = { 205292, 168386, 1306, 180 },
-		spawn = { 204692, 168415, 1306, 180 }
+		location = { 163351, 191475, 1360, -90 },
+		spawn = { 161073, 191724, 1362, -90 }
     },
     {
 		vehicles = { 
 			vehicle_1 = 3000,
-			vehicle_4 = 3000,
+			vehicle_22 = 3000,
 			vehicle_5 = 3000,
 			vehicle_6 = 10000,
 			vehicle_7 = 10000,
