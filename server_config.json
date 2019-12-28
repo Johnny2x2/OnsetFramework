@@ -1,0 +1,34 @@
+{
+    "servername": "UnityRolePlay InDevelopment discord.gg/RZU8r75",
+    "servername_short": "UnityRolePlay InDevelopment discord.gg/RZU8r75",
+    "gamemode": "https:\/\/discord.gg\/TXMjbge",
+    "website_url": "https:\/\/discord.gg\/TXMjbge",
+    "ipaddress": "127.0.0.1",
+    "port": 7777,
+    "maxplayers": 30,
+    "password": "",
+    "timeout": 15000,
+    "iplimit": 5,
+    "masterlist": true,
+    "plugins": [
+        "mariadb",
+      "ini-plugin"
+    ],
+    "packages": [
+        "dialogui",
+        "i18n",
+		"onsetrp",
+		"helpmenu",
+		"jobcenter",
+		"loadmap",
+		"openmap",
+		"packagemanager",
+		"snow"
+    ],
+    "stream_distance": 12000,
+    "stream_update_rate": 0.05,
+    "voice": true,
+    "voice_sample_rate": 48000,
+    "voice_distance": 6000,
+    "voice_spatialization": true
+}
