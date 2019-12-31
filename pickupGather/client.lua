@@ -1,7 +1,7 @@
 local Dialog = ImportPackage("dialogui")
 local _ = _ or function(k,...) return ImportPackage("i18n").t(GetPackageName(),k,...) end
 
-local GatherObject
+
 local ispickupGather
 local GatherObjectIds = { }
 
@@ -44,13 +44,3 @@ function GetNearestpickupGather()
     return 0
     
 end
-
-function tablefind(tab, el)
-	for index, value in pairs(tab) do
-		if value == el then
-			return index
-		end
-	end
-end
-
-

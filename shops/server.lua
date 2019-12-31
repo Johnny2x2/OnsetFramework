@@ -14,7 +14,9 @@ ShopTable = {
             jerican = 50,
             phone = 100,
             fishing_rod = 20,
-            fish = 20
+            fish = 20,
+            wild_berries = 4,
+            wild_berries_2 = 8
 		},
 		location = { 
             { 128748, 77622, 1576, 90 },

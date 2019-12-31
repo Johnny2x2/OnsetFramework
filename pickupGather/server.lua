@@ -1,6 +1,5 @@
 local _ = function(k,...) return ImportPackage("i18n").t(GetPackageName(),k,...) end
 
-PickupGatherCached = { }
 --Add New pickup gather item
 PickupGatherTable = 
 {
@@ -25,66 +24,50 @@ PickupGatherTable =
 }
 
 AddEvent("OnPackageStart", function()
-
+    --Start Initial Drop
     SpawnGatherItems()
 
-    --Respawn Berries every minute
+    --Respawn Pickup Items every minute
     CreateTimer(function()
-        ReSpawnGatherItems()
+        DestroyAllpickupGatherObjects() --Destroy all pickup items before respawning all new ones
+        SpawnGatherItems() -- Spawn all gather items
         AddPlayerChatAll("Spawning Gather items") --Temp delete after debug
-        CallRemoteEvent(player, "pickupGatherSetup", PickupGatherCached )
+        local gatherObjectsList = GetpickupGatherObjects() --Get ids of all new gather items
+        for i, j in pairs(GetAllPlayers()) do
+            CallRemoteEvent(j, "pickupGatherSetup", gatherObjectsList) --Send ids to all players
+        end      
     end, 60000) 
-
 end)
-
 
 AddEvent("OnPlayerJoin", function(player)
-	CallRemoteEvent(player, "pickupGatherSetup", PickupGatherCached )
+	CallRemoteEvent(player, "pickupGatherSetup", GetpickupGatherObjects()) --Give player gather ids at start
 end)
 
-
-function ReSpawnGatherItems()
-    for k,v in pairs(PickupGatherTable) do
-        for i,j in pairs(v.location) do
-            if v.pickupid == nil then
-                v.pickupid[i] = CreateObject(v.Modelid, v.location[i][1], v.location[i][2], v.location[i][3])
-                CreateText3D(_("Gather").."\n".._("press_e"), 18, v.location[i][1], v.location[i][2], v.location[i][3], 0, 0, 0)	
-                table.insert(PickupGatherCached, v.pickupid[i])
-            elseif v.pickupid[i] == nil then
-                v.pickupid[i] = CreateObject(v.Modelid, v.location[i][1], v.location[i][2], v.location[i][3])
-                CreateText3D(_("Gather").."\n".._("press_e"), 18, v.location[i][1], v.location[i][2], v.location[i][3], 0, 0, 0)
-                table.insert(PickupGatherCached, v.pickupid[i])	
-            end
-
-		end      
-	end	
-end
-
+--Spawn all gather items in gather list
 function SpawnGatherItems()
     for k,v in pairs(PickupGatherTable) do
         for i,j in pairs(v.location) do
             v.pickupid[i] = CreateObject(v.Modelid, v.location[i][1], v.location[i][2], v.location[i][3])
-            CreateText3D(_("Gather"), 18, v.location[i][1], v.location[i][2], v.location[i][3], 0, 0, 0)	
 		end      
 	end	
 end
 
 AddRemoteEvent("pickupGatherInteract", function(player, pgobject)
     local pickupGather, objectid = GetpickupGatherByObject(pgobject)
-
+    
 	if pickupGather then
 		local x, y, z = GetObjectLocation(pickupGather.pickupid[objectid])
 		local x2, y2, z2 = GetPlayerLocation(player)
         local dist = GetDistance3D(x, y, z, x2, y2, z2)
 
-		if dist < 250 then
-			for k,v in pairs(PickupGatherTable) do
-				if pgobject == v.pickupid[objectid] then
-					local randomBerryAmount = math.Random(2, 5)
-                    CallRemoteEvent(player, "MakeNotification", "GOT " .. randomBerryAmount .." BERRIES", "linear-gradient(to right, #00b09b, #96c93d)")
+        if dist < 250 then
+            
+            for k,v in pairs(PickupGatherTable) do
+                if pgobject == v.pickupid[objectid] then
+                    local randomBerryAmount = Random(2, 5)
+                    CallRemoteEvent(player, "MakeNotification", _("Gather", randomBerryAmount, _(v.pickupItem)), "linear-gradient(to right, #00b09b, #96c93d)")
                     AddInventory(player, v.pickupItem, randomBerryAmount)
-                    DestroyPickup(v.pickupid[i])
-                    v.pickupid[i] = nil     
+                    DestroyObject(pgobject)
 				end
 			end  
 			
@@ -101,4 +84,24 @@ function GetpickupGatherByObject(object)
         end
 	end
 	return nil
+end
+
+function GetpickupGatherObjects()
+    local gatherObjectsidlist = {}
+    local ListSize = 0
+    for k,v in pairs(PickupGatherTable) do
+        for i,j in pairs(v.pickupid) do
+            ListSize = ListSize + 1
+            gatherObjectsidlist[ListSize] = j         
+        end
+	end
+	return gatherObjectsidlist
+end
+
+function DestroyAllpickupGatherObjects()
+    for k,v in pairs(PickupGatherTable) do
+        for i,j in pairs(v.pickupid) do
+            DestroyObject(j)      
+        end
+	end
 end

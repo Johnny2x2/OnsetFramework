@@ -4,7 +4,7 @@ fShopObjectsCached = { }
 fShopTable = { 
     {
         items = { 
-            CHAIR_02 = 5,
+            CHAIR_02 = 512,
             CRATE_01 = 1544,
             BRIEFCASE_01 = 526
 

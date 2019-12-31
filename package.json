@@ -38,7 +38,8 @@
         "ExplodingBarrel/server.lua",
         "TeleportMarkers/server.lua",
         "helpmenu/server.lua",
-        "loadmap/server/editor.lua"
+        "loadmap/server/editor.lua",
+        "pickupGather/server.lua"
     ],
     "client_scripts": [
         "hunger/client.lua",
@@ -72,7 +73,8 @@
         "DevDebugPro/client_events.lua",
         "DevDebugPro/client_funcs.lua",
         "helpmenu/client.lua",
-        "loadmap/client/editor.lua"
+        "loadmap/client/editor.lua",
+        "pickupGather/client.lua"
     ],
     "files": [
         "hud/speaking/speaking.png",

@@ -4,7 +4,7 @@ AddEvent("OnPackageStart", function()
     NotificationHud = CreateWebUI(0, 0, 0, 0, 0, 32)
     SetWebAlignment(NotificationHud, 0.0, 0.0)
     SetWebAnchors(NotificationHud, 0.0, 0.0, 1.0, 1.0)
-    LoadWebFile(NotificationHud, "http://asset/onsetrp/notification/notification/notification.html")
+    LoadWebFile(NotificationHud, "http://asset/OnsetFramework/notification/notification/notification.html")
     SetWebVisibility(NotificationHud, WEB_HITINVISIBLE)
 
     --[[ CreateTimer(function()
