@@ -54,7 +54,22 @@ AddRemoteEvent("UseInventory", function(player, item, amount)
             end
             if item == "processed_weed" then
                 AddPlayerChat(player, "you got high")
-                CallRemoteEvent(player, "GetHigh")
+                CallRemoteEvent(player, "GetHigh", 7000)
+                RemoveInventory(player, item, amount)
+            end
+            if item == "processed_coke" then
+                AddPlayerChat(player, "you got high")
+                CallRemoteEvent(player, "GetHigh", 10000)
+                RemoveInventory(player, item, amount)
+            end
+            if item == "processed_meth" then
+                AddPlayerChat(player, "you got high")
+                CallRemoteEvent(player, "GetHigh", 15000)
+                RemoveInventory(player, item, amount)
+            end
+            if item == "processed_heroin" then
+                AddPlayerChat(player, "you got high")
+                CallRemoteEvent(player, "GetHigh", 30000)
                 RemoveInventory(player, item, amount)
             end
             if item == "repair_kit" then

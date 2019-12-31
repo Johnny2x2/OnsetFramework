@@ -67,7 +67,7 @@ AddRemoteEvent("LockControlMove", function(move)
 end)
 
 
-AddRemoteEvent("GetHigh", function()
+AddRemoteEvent("GetHigh", function(time)
 
     SetPostEffect("ImageEffects", "VignetteIntensity", 1.0)
     SetPostEffect("Chromatic", "Intensity", 5.0)
@@ -77,7 +77,7 @@ AddRemoteEvent("GetHigh", function()
     SetCameraShakeRotation(0.0, 0.0, 1.0, 10.0, 0.0, 0.0)
     SetCameraShakeFOV(5.0, 5.0)
     PlayCameraShake(100000.0, 2.0, 1.0, 1.1)
-    Delay(5000, function()
+    Delay(time, function()
         DrunkOn = false
 		SetPostEffect("ImageEffects", "VignetteIntensity", 0.25)
 		SetPostEffect("Chromatic", "Intensity", 0.0)
