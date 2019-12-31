@@ -74,7 +74,8 @@
         "DevDebugPro/client_funcs.lua",
         "helpmenu/client.lua",
         "loadmap/client/editor.lua",
-        "pickupGather/client.lua"
+        "pickupGather/client.lua",
+        "openmap/client.lua"
     ],
     "files": [
         "hud/speaking/speaking.png",
@@ -123,6 +124,7 @@
 		"helpmenu/style.css",
 		"helpmenu/jquery.js",
 		"helpmenu/index.js",
-        "helpmenu/help.png"
+        "helpmenu/help.png",
+        "openmap/index.html"
     ]
 }

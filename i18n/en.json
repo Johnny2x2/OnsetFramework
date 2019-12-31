@@ -285,5 +285,7 @@
     "gather_cancel": "Gather Cancelled",
     "wild_berries":"Red Wild Berries",
     "wild_berries_2":"Yellow Wild Berries",
-    "Gather":"You picked up: {1} {2}"
+    "Gather":"You picked up: {1} {2}",
+    "CRATE_01":"CRATE",
+    "BRIEFCASE_01":"BRIEFCASE"
 }
