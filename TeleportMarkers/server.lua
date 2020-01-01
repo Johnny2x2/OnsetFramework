@@ -12,6 +12,12 @@ TeleportMarkerTable =
         location = {216569.641, 175710.734, 1305.324},
         TeleportTo = {216569.641, 175310.734, 1305.324},
         pickupid = 0
+    },
+    {
+    Modelid = 334,
+        location = {200406.171, 171941.421, 1306.949},
+        TeleportTo = {200406.171, 172141.421, 1306.949},
+        pickupid = 0
     }
 }
 
