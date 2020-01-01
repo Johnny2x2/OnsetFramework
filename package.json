@@ -75,7 +75,7 @@
         "helpmenu/client.lua",
         "loadmap/client/editor.lua",
         "pickupGather/client.lua",
-        "openmap/client.lua"
+        "pinmap/client/main.lua"
     ],
     "files": [
         "hud/speaking/speaking.png",
@@ -125,6 +125,13 @@
 		"helpmenu/jquery.js",
 		"helpmenu/index.js",
         "helpmenu/help.png",
-        "openmap/index.html"
+		"pinmap/client/web/map.html",
+		"pinmap/client/web/map.css",
+		"pinmap/client/web/map.js",
+		"pinmap/client/web/map.png",
+		"pinmap/client/web/playermarker.png",
+		"pinmap/client/web/destination.png",
+		"pinmap/client/web/market.png",
+		"pinmap/client/web/gunstore.png"
     ]
 }

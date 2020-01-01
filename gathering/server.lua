@@ -1,30 +1,34 @@
 local _ = function(k,...) return ImportPackage("i18n").t(GetPackageName(),k,...) end
 
 gatherTable = {
-    --[[ {
+    {
         gather_zone = { 186601, -39031, 1451 },
         gather_item = "unprocessed_weed",
+        gather_tool = "TRIPICK",
         process_zone = { 70695, 9566, 1366 },
         process_item = "processed_weed"
     },
     {
         gather_zone = { 186474, -43277, 1451 },
         gather_item = "unprocessed_heroin",
+        gather_tool = "TRIPICK",
         process_zone = { 73218, 3822, 1367 },
         process_item = "processed_heroin"
     },
     {
         gather_zone = { 193607, -46512, 1451 },
         gather_item = "unprocessed_meth",
+        gather_tool = "TRIPICK",
         process_zone = { 72095, 1418, 1367 },
         process_item = "processed_meth"
     },
     {
         gather_zone = { 192080, -45155, 1529 },
         gather_item = "unprocessed_coke",
+        gather_tool = "TRIPICK",
         process_zone = { 71981, 106, 1367 },
         process_item = "processed_coke"
-    }, ]]
+    },
     {
         gather_zone = { -96766, 88886, 180 },
         gather_item = "unprocessed_rock",
@@ -36,7 +40,7 @@ gatherTable = {
         gather_zone = { 232464, 193521, 112 },
         gather_item = "fish",
         gather_tool = "fishing_rod",
-    },
+    }
 }
 
 gatherZoneCached = {}
@@ -97,6 +101,9 @@ AddRemoteEvent("StartGathering", function(player, gatherzone)
     elseif gatherTable[gather].gather_tool == "fishing_rod" then
         animation = "FISHING"
         attached_item = 1111
+    elseif gatherTable[gather].gather_tool == "TRIPICK" then
+        animation = "PICKAXE_SWING"
+        attached_item = 1063
     else
         animation = "PICKUP_LOWER"
     end

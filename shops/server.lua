@@ -16,11 +16,7 @@ ShopTable = {
             fishing_rod = 20,
             fish = 20,
             wild_berries = 4,
-            wild_berries_2 = 8,
-            processed_weed = 2000,
-            processed_meth = 4000,
-            processed_coke = 6000,
-            processed_heroin = 10000
+            wild_berries_2 = 8
 		},
 		location = { 
             { 128748, 77622, 1576, 90 },
@@ -62,9 +58,10 @@ ShopTable = {
   {
         items = {
             processed_weed = 4000,
-            processed_meth = 4000,
-            processed_coke = 4000,
-            processed_heroin = 4000
+            processed_meth = 2000,
+            processed_coke = 10000,
+            processed_heroin = 1000,
+            TRIPICK = 50000
         },
         location = {
             { -177344, 3673, 1992, 0 }

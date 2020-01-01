@@ -287,5 +287,6 @@
     "wild_berries_2":"Yellow Wild Berries",
     "Gather":"You picked up: {1} {2}",
     "CRATE_01":"CRATE",
-    "BRIEFCASE_01":"BRIEFCASE"
+    "BRIEFCASE_01":"BRIEFCASE",
+    "TRIPICK":"TRI-PICK"
 }
