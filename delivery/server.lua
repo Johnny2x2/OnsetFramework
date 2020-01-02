@@ -14,6 +14,7 @@ local deliveryNpc = {
                 spawn = { 203032, 170212, 1306, 90 }
             }
 }
+
 local deliveryPoint = {
     { 116691, 164243, 3028 },
     { 38964, 204516, 550 },

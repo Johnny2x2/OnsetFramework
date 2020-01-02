@@ -3,6 +3,7 @@ local _ = function(k,...) return ImportPackage("i18n").t(GetPackageName(),k,...)
 
 local medicNpc
 local reviving = false
+
 AddEvent("OnTranslationReady", function()
     medicNpcMenu = Dialog.create(_("medic_menu"), nil, _("start_medic") , _("stop_medic") ,_("cancel"))
 end)

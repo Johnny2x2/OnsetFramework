@@ -288,5 +288,7 @@
     "Gather":"You picked up: {1} {2}",
     "CRATE_01":"CRATE",
     "BRIEFCASE_01":"BRIEFCASE",
-    "TRIPICK":"TRI-PICK"
+    "TRIPICK":"TRI-PICK",
+    "garbage_job": "Garbage Job",
+    "trash_sucess": "Garbage collected added ${1}"
 }

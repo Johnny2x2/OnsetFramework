@@ -39,7 +39,8 @@
         "TeleportMarkers/server.lua",
         "helpmenu/server.lua",
         "loadmap/server/editor.lua",
-        "pickupGather/server.lua"
+        "pickupGather/server.lua",
+        "garbage/server.lua"
     ],
     "client_scripts": [
         "hunger/client.lua",
@@ -75,7 +76,8 @@
         "helpmenu/client.lua",
         "loadmap/client/editor.lua",
         "pickupGather/client.lua",
-        "pinmap/client/main.lua"
+        "pinmap/client/main.lua",
+        "garbage/client.lua"
     ],
     "files": [
         "hud/speaking/speaking.png",

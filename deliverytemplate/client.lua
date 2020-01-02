@@ -5,7 +5,7 @@ local deliveryNPC
 local deliveryNpcMenu
 local deliveryMenu
 
-AddRemoteEvent("SetupDelivery", function(deliverynpc) 
+AddRemoteEvent("SetupDeliveryTemplate", function(deliverynpc) 
     deliveryNPC = deliverynpc
 end)
 
@@ -16,13 +16,13 @@ end)
 
 AddEvent("OnKeyPress", function( key )
     if key == "E" and not onSpawn and not onCharacterCreation then
-        local NearestDelivery = GetNearestDelivery()
+        local NearestDelivery = GetNearestDeliveryTemplate()
         if NearestDelivery ~= 0 then
             Dialog.show(deliveryNpcMenu)
 		end
     end
     if key == "F3" and not onSpawn and not onCharacterCreation then
-        CallRemoteEvent("OpenDeliveryMenu")
+        CallRemoteEvent("OpenDeliveryMenuTemplate")
     end
 end)
 
@@ -30,25 +30,25 @@ end)
 AddEvent("OnDialogSubmit", function(dialog, button, ...)
 	if dialog == deliveryNpcMenu then
 		if button == 1 then
-            CallRemoteEvent("StartStopDelivery")
+            CallRemoteEvent("StartStopDeliveryTemplate")
         end
     end
     if dialog == deliveryMenu then
         if button == 1 then
-            CallRemoteEvent("NextDelivery")
+            CallRemoteEvent("NextDeliveryTemplate")
         end
         if button == 2 then
-            CallRemoteEvent("FinishDelivery")
+            CallRemoteEvent("FinishDeliveryTemplate")
         end
     end
 end)
 
-AddRemoteEvent("DeliveryMenu", function()
+AddRemoteEvent("DeliveryMenuTemplate", function()
     Dialog.show(deliveryMenu)
 end)
 
 
-function GetNearestDelivery()
+function GetNearestDeliveryTemplate()
 	local x, y, z = GetPlayerLocation()
 	
 	for k,v in pairs(GetStreamedNPC()) do

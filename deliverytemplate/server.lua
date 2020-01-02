@@ -1,18 +1,18 @@
 local _ = function(k,...) return ImportPackage("i18n").t(GetPackageName(),k,...) end
 
 local deliveryNpc = {
-            {
-                location = { -16925, -29058, 2200, -90 },
-                spawn = { -17450, -28600, 2060, -90 }
-            },
-            {
-                location = { -168301, -41499, 1192, 90 },
-                spawn = { -168233, -40914, 1146, 90 }
-            },
-            {
-                location = { 202284, 170229, 1306, 0 },
-                spawn = { 203032, 170212, 1306, 90 }
-            }
+    {
+        location = { -16925, -29058, 2200, -90 },
+        spawn = { -17450, -28600, 2060, -90 }
+    },
+    {
+        location = { -168301, -41499, 1192, 90 },
+        spawn = { -168233, -40914, 1146, 90 }
+    },
+    {
+        location = { 202284, 170229, 1306, 0 },
+        spawn = { 203032, 170212, 1306, 90 }
+    }
 }
 local deliveryPoint = {
     { 116691, 164243, 3028 },
@@ -51,11 +51,11 @@ AddEvent("OnPlayerQuit", function( player )
 end)
 
 AddEvent("OnPlayerJoin", function(player)
-    CallRemoteEvent(player, "SetupDelivery", deliveryNpcCached)
+    CallRemoteEvent(player, "SetupDeliveryTemplate", deliveryNpcCached)
 end)
 
-AddRemoteEvent("StartStopDelivery", function(player)
-    local nearestDelivery = GetNearestDelivery(player)
+AddRemoteEvent("StartStopDeliveryTemplate", function(player)
+    local nearestDelivery = GetNearestDeliveryTemplate(player)
     if PlayerData[player].job == "" then
         if PlayerData[player].job_vehicle ~= nil then
             RemoveVehicle(PlayerData[player].job_vehicle)
@@ -68,7 +68,7 @@ AddRemoteEvent("StartStopDelivery", function(player)
             local isSpawnable = true
             local jobCount = 0
             for k,v in pairs(PlayerData) do
-                if v.job == "delivery" then
+                if v.job == "deliveryTemplate" then
                     jobCount = jobCount + 1
                 end
             end
@@ -94,7 +94,7 @@ AddRemoteEvent("StartStopDelivery", function(player)
                 return
             end
         end
-    elseif PlayerData[player].job == "delivery" then
+    elseif PlayerData[player].job == "deliveryTemplate" then
         if PlayerData[player].job_vehicle ~= nil then
                 RemoveVehicle(PlayerData[player].job_vehicle)
                 RemovePlayerFromVehicleRestriction(PlayerData[player].job_vehicle, player)
@@ -108,13 +108,13 @@ AddRemoteEvent("StartStopDelivery", function(player)
     end
 end)
 
-AddRemoteEvent("OpenDeliveryMenu", function(player)
+AddRemoteEvent("OpenDeliveryMenuTemplate", function(player)
     if PlayerData[player].job == "delivery" then
-        CallRemoteEvent(player, "DeliveryMenu")
+        CallRemoteEvent(player, "DeliveryMenuTemplate")
     end
 end)
 
-AddRemoteEvent("NextDelivery", function(player)
+AddRemoteEvent("NextDeliveryTemplate", function(player)
     if playerDelivery[player] ~= nil then
         return CallRemoteEvent(player, "MakeNotification", _("finish_your_delivery"), "linear-gradient(to right, #ff5f6d, #ffc371)")
     end
@@ -124,7 +124,7 @@ AddRemoteEvent("NextDelivery", function(player)
     CallRemoteEvent(player, "MakeNotification", _("new_delivery"), "linear-gradient(to right, #00b09b, #96c93d)")
 end)
 
-AddRemoteEvent("FinishDelivery", function(player)
+AddRemoteEvent("FinishDeliveryTemplate", function(player)
     delivery = playerDelivery[player]
 
     if delivery == nil then
@@ -148,7 +148,7 @@ AddRemoteEvent("FinishDelivery", function(player)
     end
 end)
 
-function GetNearestDelivery(player)
+function GetNearestDeliveryTemplate(player)
 	local x, y, z = GetPlayerLocation(player)
 	
 	for k,v in pairs(GetAllNPC()) do
