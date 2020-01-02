@@ -32,9 +32,16 @@ gatherTable = {
     {
         gather_zone = { -96766, 88886, 180 },
         gather_item = "unprocessed_rock",
-        gather_tool = "pickaxe",
+        gather_tool = "pickaxe",                            
         process_zone = { -82629, 90991, 481 },
         process_item = "processed_rock"
+    },
+    {
+        gather_zone = { -22111, 11874, 2054 },
+        gather_item = "unprocessed_oil",
+        gather_tool = "pickaxe",
+        process_zone = { 5037, 99061, 1491 },
+        process_item = "jerican"
     },
     {
         gather_zone = { 232464, 193521, 112 },

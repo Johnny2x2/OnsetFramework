@@ -49,6 +49,7 @@ AddRemoteEvent("atmSetup", function(AtmObjects)
 	AtmIds = AtmObjects
 end)
 
+
 function GetNearestATM()
 	local x, y, z = GetPlayerLocation()
 
@@ -69,6 +70,7 @@ function GetNearestATM()
 	return 0
 end
 
+
 function tablefind(tab, el)
 	for index, value in pairs(tab) do
 		if value == el then
@@ -76,6 +78,7 @@ function tablefind(tab, el)
 		end
 	end
 end
+
 
 function withdrawMoney(amount)
     if amount ~= "" then
@@ -89,6 +92,7 @@ function withdrawMoney(amount)
     end 
 end
 AddEvent("withdrawMoney", withdrawMoney)
+
 
 function depositMoney(amount)
     if amount ~= "" then
