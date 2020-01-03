@@ -4,7 +4,7 @@ fShopObjectsCached = { }
 fShopTable = { 
     {
         items = { 
-            CHAIR_02 = 5,
+            CHAIR_02 = 512,
             CRATE_01 = 1544,
             BRIEFCASE_01 = 526
 
@@ -88,15 +88,15 @@ AddRemoteEvent("fShopBuy", function(player, shopid, item)
         CallRemoteEvent(player, "MakeNotification", _("shop_success_buy", _(item), price, _("currency")), "linear-gradient(to right, #00b09b, #96c93d)")
         
         if item == "CHAIR_02" then
-        	local object = CreateObject(512, -169529, -38300, 1146)
-			AddObject(object)
-			AddPlayerToObjectRestriction(object, player)
+        	CreateInteractiveObject(player, 512, -169529, -38300, 1146)
         end
         
         if item == "BRIEFCASE_01" then 
-            local object = CreateObject(526 -169529, -38300, 1146)
-            AddObject(object)
-            AddPlayerToObjectRestriction(object, player)
+            CreateInteractiveObject(player, 526, -169529, -38300, 1146)
+        end
+
+        if item == "CRATE_01" then 
+            CreateInteractiveObject(player, 1544, -169529, -38300, 1146)
         end
     end
 end)

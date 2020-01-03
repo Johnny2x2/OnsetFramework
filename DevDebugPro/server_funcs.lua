@@ -24,8 +24,10 @@ AddCommand("npc", function(player)
 end)
 
 AddCommand("object", function(player, modelid)
-    local x, y, z = GetPlayerLocation(player)
-    CreateObject(modelid, x, y, z)
+	local x, y, z = GetPlayerLocation(player)
+
+	local object = CreateObject(modelid, x, y+200, z)
+	AddPlayerChat(player, "object created "..object)
 end)
 
 AddCommand("weapon", function(player, weapon_model)
@@ -64,6 +66,9 @@ function cmd_v(player, model)
 		SetVehicleColor(vehicle, RGB(0.0, 60.0, 240.0))
 		SetVehicleLicensePlate(vehicle, "EMS-02")
 	end
+
+	SetPlayerInVehicle(player, vehicle , 1)
+	AddPlayerChat(player, "Vehicle "..vehicle)
 end
 AddCommand("vehicle", cmd_v)
 
@@ -93,13 +98,17 @@ function cmd_attach(player, hatobject, bone, x, y, z, r1, r2, r3)
 end
 AddCommand("attach", cmd_attach)
 
+function cmd_attach(player, vehicleid, objectid, bone, x, y, z, r1, r2, r3)
+	SetObjectAttached(objectid, ATTACH_VEHICLE, vehicleid, x, y, z, r1, r2, r3, bone)
+end
+AddCommand("attachv", cmd_attach)
+
 AddCommand("anim", function(playerid, animationid)
     SetPlayerAnimation(playerid, animationid)
 end)
 
 AddCommand("getloc", function(player)
-	local x, y, z = GetPlayerLocation(player)
-	
+	local x, y, z = GetPlayerLocation(player)	
 	AddPlayerChat(player, "location = ".. x..", "..y..", "..z) 
 end)
 
@@ -107,3 +116,16 @@ AddCommand("setloc", function(player, x, y, z)
 	SetPlayerLocation(player, x, y, z, 0)
 end)
 	--Backpack /attach 821 pelvis  10 -20 3  180 90 -90
+
+AddCommand("fwdx", function(player, dist)
+	local x, y, z = GetPlayerLocation(player)
+	local h = GetPlayerHeading(player)
+	SetPlayerLocation(player, x + dist, y, z, h)
+end)
+
+AddCommand("fwdy", function(player, dist)
+	local x, y, z = GetPlayerLocation(player)
+	local h = GetPlayerHeading(player)
+	SetPlayerLocation(player, x, y + dist, z, h)
+end)
+

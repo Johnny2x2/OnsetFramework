@@ -14,6 +14,7 @@ function OnPackageStart()
     AddFunctionExport("CanPlayerDrop", CanPlayerDrop)
     AddFunctionExport("CanPlayerLoad", CanPlayerLoad)
     AddFunctionExport("CanPlayerUnLoad", CanPlayerUnLoad)
+    AddFunctionExport("CreateInteractiveObject", CreateInteractiveObject)
 end
 AddEvent("OnPackageStart", OnPackageStart)
 
@@ -32,6 +33,12 @@ function AddObject(object)
         print("Trying to add an invalid object to the objects table")
         return nil
     end
+end
+
+function CreateInteractiveObject(player, modelid, x, y, z)
+    local object = CreateObject(modelid, x, y, z)
+    AddObject(object)
+    AddPlayerToObjectRestriction(object, player)
 end
 
 -- Remove an object that was interactable

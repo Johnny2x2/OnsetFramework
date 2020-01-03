@@ -282,5 +282,13 @@
     "fishing_rod": "Fishing Rod",
     "fish": "Fish",
     "CHAIR_02": "Chair",
-    "gather_cancel": "Gather Cancelled"
+    "gather_cancel": "Gather Cancelled",
+    "wild_berries":"Red Wild Berries",
+    "wild_berries_2":"Yellow Wild Berries",
+    "Gather":"You picked up: {1} {2}",
+    "CRATE_01":"CRATE",
+    "BRIEFCASE_01":"BRIEFCASE",
+    "TRIPICK":"TRI-PICK",
+    "garbage_job": "Garbage Job",
+    "trash_sucess": "Garbage collected added ${1}"
 }

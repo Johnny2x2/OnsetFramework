@@ -21,7 +21,6 @@ end)
 function OnKeyPress(key)
     if key == "E" and not onSpawn and not onCharacterCreation then
 		local NearestShop = GetNearestfShop()
-		AddPlayerChat(NearestShop)
 		
         if NearestShop ~= 0 then
             CallRemoteEvent("fshopInteract", NearestShop)
